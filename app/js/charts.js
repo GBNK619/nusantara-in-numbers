@@ -136,15 +136,21 @@ export function pyramidChart(rows, options = {}) {
   const parts = [];
   parts.push(`<text x="${mid - 10}" y="14" text-anchor="end" class="chart-value" fill="#34558b">Male</text>`);
   parts.push(`<text x="${mid + 10}" y="14" class="chart-value" fill="#b3352c">Female</text>`);
+  const bars = [];
+  const ages = [];
   rows.forEach((r, i) => {
     const y = 24 + i * rowH;
     const mw = r.male * scale;
     const fw = r.female * scale;
-    parts.push(`<rect x="${(mid - mw).toFixed(1)}" y="${y}" width="${mw.toFixed(1)}" height="15" fill="#34558b"><title>Age ${esc(r.group)} male: ${r.male}%</title></rect>`);
-    parts.push(`<rect x="${mid}" y="${y}" width="${fw.toFixed(1)}" height="15" fill="#b3352c"><title>Age ${esc(r.group)} female: ${r.female}%</title></rect>`);
-    parts.push(`<text x="${mid}" y="${y + 12}" text-anchor="middle" class="chart-axis pyramid-age">${esc(r.group)}</text>`);
-    parts.push(`<text x="${(mid - mw - 6).toFixed(1)}" y="${y + 12}" text-anchor="end" class="chart-axis">${r.male}</text>`);
-    parts.push(`<text x="${(mid + fw + 6).toFixed(1)}" y="${y + 12}" class="chart-axis">${r.female}</text>`);
+    bars.push(`<rect x="${(mid - mw).toFixed(1)}" y="${y}" width="${mw.toFixed(1)}" height="15" fill="#34558b"><title>Age ${esc(r.group)} male: ${r.male}%</title></rect>`);
+    bars.push(`<rect x="${mid}" y="${y}" width="${fw.toFixed(1)}" height="15" fill="#b3352c"><title>Age ${esc(r.group)} female: ${r.female}%</title></rect>`);
+    bars.push(`<text x="${(mid - mw - 6).toFixed(1)}" y="${y + 12}" text-anchor="end" class="chart-axis">${r.male}</text>`);
+    bars.push(`<text x="${(mid + fw + 6).toFixed(1)}" y="${y + 12}" class="chart-axis">${r.female}</text>`);
+    ages.push(`<text x="${mid}" y="${y + 12}" text-anchor="middle" class="chart-axis pyramid-age">${esc(r.group)}</text>`);
   });
+  // The age labels sit in a clear band down the middle, drawn over the bars.
+  parts.push(...bars);
+  parts.push(`<rect x="${mid - 25}" y="20" width="50" height="${rows.length * rowH}" fill="#ffffff"/>`);
+  parts.push(...ages);
   return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.label ?? 'Population pyramid')}" class="chart">${parts.join('')}</svg>`;
 }
