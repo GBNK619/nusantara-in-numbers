@@ -1,0 +1,224 @@
+/* NUSANTARA IN NUMBERS — one stylesheet for the whole site.
+   Palette: warm paper background, deep ink text, flag red accent,
+   teal and gold as the secondary chart colours. System fonts only. */
+
+:root {
+  --paper: #faf7f2;
+  --card: #ffffff;
+  --ink: #1d2733;
+  --muted: #5b6672;
+  --line: #e3ddd2;
+  --red: #b3352c;
+  --teal: #0f766e;
+  --gold: #c08a1e;
+  --blue: #34558b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.site-header {
+  background: var(--ink);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--red);
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.brand-text strong {
+  display: block;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+}
+
+.brand-text small {
+  display: block;
+  color: #c8cfd8;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.site-nav a {
+  color: #dfe4ea;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 14.5px;
+}
+
+.site-nav a:hover { background: #2b3644; color: #fff; }
+.site-nav a.active { background: var(--red); color: #fff; }
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+}
+
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.lede { font-size: 17px; color: var(--muted); max-width: 46em; margin: 0 0 8px; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.kpi-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+
+.kpi-label { margin: 0; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.kpi-value { margin: 4px 0 2px; font-size: 27px; font-weight: 700; }
+.kpi-year { margin: 0; font-size: 13px; font-weight: 600; color: var(--teal); }
+.kpi-note { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin: 14px 0;
+}
+
+.card h3 { margin: 0 0 6px; font-size: 19px; }
+.card-blurb { margin: 0 0 12px; color: var(--muted); font-size: 14.5px; }
+
+.chart { width: 100%; height: auto; display: block; }
+.chart-axis { font-size: 12px; fill: var(--muted); }
+.chart-value { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.donut-center { font-size: 21px; font-weight: 700; fill: var(--ink); }
+.pyramid-age { fill: var(--ink); font-weight: 600; }
+
+.donut-wrap { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.donut { width: 230px; flex: none; }
+.donut-legend { list-style: none; margin: 0; padding: 0; font-size: 13.5px; flex: 1 1 180px; }
+.donut-legend li { padding: 2.5px 0; }
+.swatch { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 8px; }
+
+.source-note { font-size: 12.5px; color: var(--muted); margin: 12px 0 0; }
+
+.fact-list, .next-links { margin: 8px 0; padding-left: 20px; }
+.fact-list li, .next-links li { margin: 7px 0; }
+.next-links a { color: var(--red); font-weight: 600; }
+
+.trade-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 10px; }
+.trade-cell { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.trade-label { margin: 0; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.trade-value { margin: 4px 0; font-size: 23px; font-weight: 700; }
+.trade-note { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+.table-tools { display: flex; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.search-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+#province-search {
+  font-size: 15px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-width: 260px;
+  background: #fff;
+  color: var(--ink);
+}
+.table-count { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+.table-scroll { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.data-table th, .data-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+.data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table tbody tr:hover { background: var(--paper); }
+.sort-btn {
+  background: none; border: none; padding: 0; font: inherit; font-weight: 700;
+  color: var(--ink); cursor: pointer; text-align: left;
+}
+.sort-btn:hover { color: var(--red); }
+.sort-mark { color: var(--red); font-size: 11px; }
+.no-rows { color: var(--muted); text-align: center; }
+
+.prose p { max-width: 46em; }
+.prose h3 { margin-top: 22px; }
+.prose h3:first-child { margin-top: 0; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.site-footer p { max-width: 1080px; margin: 6px auto; padding: 0 20px; }
+.site-footer p:first-child { padding-top: 16px; }
+.site-footer p:last-child { padding-bottom: 20px; }
+.site-footer a { color: var(--red); }
+
+@media (max-width: 760px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .trade-row { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 27px; }
+  .header-inner { padding: 10px 14px; }
+  .page { padding: 20px 14px 32px; }
+  .donut { width: 200px; margin: 0 auto; }
+}
+
+@media (max-width: 460px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .brand-text strong { font-size: 15px; }
+  .site-nav a { padding: 6px 9px; font-size: 13.5px; }
+  #province-search { min-width: 0; width: 100%; }
+}
